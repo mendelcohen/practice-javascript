@@ -162,4 +162,106 @@ const selectNumbers = array => {
   }
   return arraySelection;
 };
-console.log(selectNumbers([2, 1, 3, 2, 5, 1, 2, 6, 2, 7, 1, 5, 6, 3, 2, 6, 2, 1, 2]));
+// console.log(selectNumbers([2, 1, 3, 2, 5, 1, 2, 6, 2, 7, 1, 5, 6, 3, 2, 6, 2, 1, 2]));
+
+
+
+// Return the reverse of a given string.
+
+// Input: “abcde”
+// Output: “edcba”
+
+const stringReverse = string => {
+  let reversedString = "";
+  for (let letter of string) {
+    reversedString = letter + reversedString;
+  }
+  return reversedString;
+};
+// console.log(stringReverse("abcde"));
+
+const stringReversed = string => {
+  let reversedString = "";
+  for (let i = 0; i < string.length; i++) {
+    reversedString = string[i] + reversedString;
+  }
+  return reversedString;
+};
+// console.log(stringReversed("abcde"));
+
+const stringReversing = string => {
+  let reversedString = "";
+  for (let i = string.length - 1; i >= 0; i--) {
+    reversedString += string[i];
+  }
+  return reversedString;
+};
+// console.log(stringReversing("abcde"));
+
+
+
+// Given a string, return true if the “$” character is contained within the string or false if it is not.
+
+// Input: “i hate $ but i love money i know i know im crazy”
+// Output: true
+
+// Input: “abcdefghijklmnopqrstuvwxyz”
+// Output: false
+
+const dollarPresent = string => {
+  for (let letter of string) {
+    if (letter === "$") {
+      return true;
+    } 
+  }
+  return false;
+};
+// console.log(dollarPresent("i hate $ but i love money i know i know im crazy"));
+// console.log(dollarPresent("abcdefghijklmnopqrstuvwxyz"));
+
+
+
+// Given a string, return a copy of the original string that has every other character capitalized. (Capitalization should begin with the second character.)
+
+// Input: “hello, how are your porcupines today?”
+// Output: “hElLo, HoW ArE YoUr pOrCuPiNeS ToDaY?”
+
+function uppercaseLetters(string) {
+  let newString = "";
+  for (var letter = 0; letter < string.length; letter++) {
+    if (letter % 2 !== 0) {
+      newString += string[letter].toUpperCase();
+    } else {
+      newString += string[letter];
+    }
+  }
+  return newString;
+}
+// console.log(uppercaseLetters("hello, how are your porcupines today?"));
+
+
+
+// Given a string, find the first occurence of two duplicate characters in a row, and return the duplicated character.
+
+// Input: “abcdefghhijkkloooop”
+// Output: “h”
+
+function firstDuplicate(string) {
+  var duplicate = "";
+  var index = 0;
+  while (index < string.length) {
+    var index2 = index + 1;
+    while (index2 < string.length) {
+      if (string[index] === string[index2]) {
+        duplicate = string[index];
+        return duplicate;
+      } else {
+        index2++;
+      }
+    }
+    index++;
+  }
+}
+// console.log(firstDuplicate("abcddefghhijkklooooppa"));
+
+
