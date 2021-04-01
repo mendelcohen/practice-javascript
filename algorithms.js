@@ -265,3 +265,70 @@ function firstDuplicate(string) {
 // console.log(firstDuplicate("abcddefghhijkklooooppa"));
 
 
+
+// Given a string of words, return a new string that contains the words in reverse order.
+
+// Input: “popcorn is so cool isn’t it yeah i thought so”
+// Output: “so thought i yeah it isn’t cool so is popcorn”
+
+function reverseSentence(string) {
+  var newSentence = "";
+  var stringArray = string.split(" ");
+  stringArray.forEach(function(word) {
+    if (newSentence === "") {
+      newSentence += word;
+    } else {
+      newSentence = word + " " + newSentence;
+    }
+  });
+  return newSentence;
+}
+// console.log(reverseSentence("popcorn is so cool isn’t it yeah i thought so"));
+
+
+
+// Given a string, return true if it is a palindrome, and false if it is not. (A palindrome is a word that reads the same both forward and backward.)
+
+// Input: “racecar”
+// Output: true
+
+// Input: “baloney”
+// Output: false
+
+const palindrome = string => {
+  console.log(string.split("").reverse().join(""));
+  return string === string.split("").reverse().join("") ? true : false;
+  
+};
+// console.log(palindrome("racecar"));
+// console.log(palindrome("baloney"));
+
+
+
+// Given two strings of equal length, return the number of characters that are different between the two strings.
+
+// Input: "ABCDEFG", "ABCXEOG"
+// Output: 2
+
+// Explanation: While the A, B, C, E, and G are in the same place for both strings, they have different characters in the other spaces. Since there are 2 such spaces that are different (the D and F in the first string), we return 2.
+
+// Input: "ABCDEFG", "ABCDEFG",
+// Output: 0
+
+function differences(string1, string2) {
+  var num = 0;
+  var index = 0; 
+  var index2 = 0;
+  while (index < string1.length) {
+    while (index2 === index) {
+      if (string1[index] !== string2[index2]) {
+        console.log(string1[index]);
+        num++;
+      } 
+      index2++;
+    }
+    index++;
+  }
+  return num;
+}
+// console.log(differences("ABCDEFG", "ABCXEOG"));
