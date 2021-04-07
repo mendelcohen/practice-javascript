@@ -283,7 +283,7 @@ function reverseSentence(string) {
   });
   return newSentence;
 }
-// console.log(reverseSentence("popcorn is so cool isn’t it yeah i thought so"));
+console.log(reverseSentence("popcorn is so cool isn’t it yeah i thought so"));
 
 
 
@@ -332,3 +332,52 @@ function differences(string1, string2) {
   return num;
 }
 // console.log(differences("ABCDEFG", "ABCXEOG"));
+
+
+
+// Write a function that returns whether a given number is a prime number.
+
+function isPrime(number) {
+  var notPrime = `${number} is NOT a prime number`;
+  if (number < 2) {
+    return notPrime;
+  } else {
+    var index = 2;
+    while (index < number) {
+      if (number % index === 0) {
+        return notPrime;
+      } else {
+        index++;
+      }
+    }
+  }
+  return `${number} is a prime number`;
+}
+console.log(isPrime(13));
+console.log(isPrime(15));
+console.log(isPrime(0));
+
+
+
+// Write a function that prints out every number from 1 to N, with the following exceptions:
+
+// If the number is divisible by 3, print out "FIZZ".
+// If the number is divisible by 5, print out "BUZZ".
+// If the number is divisible by both 3 and 5, print out "FIZZBUZZ".
+
+const fizzBuzz = num => {
+  let i = 1;
+  while (i <= num) {
+    if (i % 15 === 0) {
+      console.log("FIZZBUZZ");
+    } else if (i % 3 === 0) {
+      console.log("FIZZ");
+    } else if (i % 5 === 0) {
+      console.log("BUZZ");
+    } else {
+      console.log(i);
+    }
+    i++;
+  }
+};
+console.log(fizzBuzz(30));
