@@ -283,7 +283,7 @@ function reverseSentence(string) {
   });
   return newSentence;
 }
-console.log(reverseSentence("popcorn is so cool isn’t it yeah i thought so"));
+// console.log(reverseSentence("popcorn is so cool isn’t it yeah i thought so"));
 
 
 
@@ -353,9 +353,9 @@ function isPrime(number) {
   }
   return `${number} is a prime number`;
 }
-console.log(isPrime(13));
-console.log(isPrime(15));
-console.log(isPrime(0));
+// console.log(isPrime(13));
+// console.log(isPrime(15));
+// console.log(isPrime(0));
 
 
 
@@ -380,4 +380,33 @@ const fizzBuzz = num => {
     i++;
   }
 };
-console.log(fizzBuzz(30));
+// console.log(fizzBuzz(30));
+
+
+
+// Given a year, report if it is a leap year.
+
+// The tricky thing here is that a leap year in the Gregorian calendar occurs:
+
+// on every year that is evenly divisible by 4
+// except every year that is evenly divisible by 100
+// unless the year is also evenly divisible by 400
+// For example, 1997 is not a leap year, but 1996 is. 1900 is not a leap year, but 2000 is.
+
+// If your language provides a method in the standard library that does this look-up, pretend it doesn't exist and implement it yourself.
+
+const leapYear = year => {
+  if (year % 4 === 0 && year % 100 !== 0 || year % 400 === 0) {
+    return "a leap year";
+  } else {
+    return "NOT a leap year";
+  }
+};
+console.log(leapYear(2000));
+console.log(leapYear(2007));
+console.log(leapYear(1900));
+console.log(leapYear(500));
+console.log(leapYear(1007));
+console.log(leapYear(1000));
+console.log(leapYear(1996));
+console.log(leapYear(1904));
