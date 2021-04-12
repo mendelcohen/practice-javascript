@@ -1,5 +1,7 @@
 // Return the sum of all numbers in a given array.
 
+const { networkInterfaces } = require("os");
+
 // NOTE: Do not use any built-in language functions that do this automatically for you.
 
 // Input: [1, 2, 3, 4]
@@ -402,11 +404,31 @@ const leapYear = year => {
     return "NOT a leap year";
   }
 };
-console.log(leapYear(2000));
-console.log(leapYear(2007));
-console.log(leapYear(1900));
-console.log(leapYear(500));
-console.log(leapYear(1007));
-console.log(leapYear(1000));
-console.log(leapYear(1996));
-console.log(leapYear(1904));
+// console.log(leapYear(2000));
+// console.log(leapYear(2007));
+// console.log(leapYear(1900));
+// console.log(leapYear(500));
+// console.log(leapYear(1007));
+// console.log(leapYear(1000));
+// console.log(leapYear(1996));
+// console.log(leapYear(1904));
+
+
+
+// Write a function that gives the Nth number of the Fibonacci Sequence. The Fibonacci sequence begins with 0 and 1, and every number thereafter is the sum of the previous two numbers. So the sequence goes like this:
+
+// 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, and so on until infinity...
+
+// Input: 9
+// Output: 21 (as this is the 9th number of the Fibonacci Sequence)
+
+const fibonacci = num => {
+  let array = [0, 1];
+  let newNum = 0;
+  while (array.length <= num) {
+    newNum = array[array.length - 1] + array[array.length - 2];
+    array.push(newNum);
+  }
+  return array[num - 1];
+};
+console.log(fibonacci(13));
