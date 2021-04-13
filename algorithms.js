@@ -1,5 +1,6 @@
 // Return the sum of all numbers in a given array.
 
+const { DH_CHECK_P_NOT_SAFE_PRIME } = require("constants");
 const { networkInterfaces } = require("os");
 
 // NOTE: Do not use any built-in language functions that do this automatically for you.
@@ -509,7 +510,75 @@ while (numberOne < 1000) {
   numberOne++;
 
 }
-console.log(largestPalindrome);
+// console.log(largestPalindrome);
 
 
 
+// Given two arrays of strings, return a new string that contains every combination of a string from the first array concatenated with a string from the second array.
+
+// Input: ["a", "b", "c"], ["d", "e", "f", "g"]
+// Output: ["ad", "ae", "af", "ag", "bd", "be", "bf", "bg", "cd", "ce", "cf", "cg"]
+
+function joinStrings(array1, array2) {
+  var stringArray = [];
+  var i = 0;
+  while (i < array1.length) {
+    var j = 0;
+    while (j < array2.length) {
+      stringArray.push(array1[i] + array2[j]);
+      j++;
+    }
+    i++;
+  }
+  return stringArray;
+}
+// console.log(joinStrings(["a", "b", "c"], ["d", "e", "f", "g"]));
+
+
+
+// Given ONE array of strings, return a new array that contains every combination of each string with every other string in the array.
+
+// Input: ["a", "b", "c", "d"]
+// Output: ["ab", "ac", "ad", "ba", "bc", "bd", "ca", "cb", "cd", "da", "db", "dc"]
+
+function combinedStrings(array) {
+  var stringsArray = [];
+  var i = 0;
+  while (i < array.length) {
+    var j = 0;
+    while (j < array.length) {
+      if (array[i] !== array[j]) {
+        stringsArray.push(array[i] + array[j]);
+      }
+      j++;
+    }
+    i++;
+  }
+  return stringsArray;
+}
+// console.log(combinedStrings(["a", "b", "c", "d"]));
+
+
+
+// Find the largest product of any two numbers within a given array.
+
+// Input: [5, -2, 1, -9, -7, 2, 6]
+// Output: 63 (-9 * -7)
+
+function findLargestProduct(array) {
+  var largestProduct = array[0] * array[1];
+  var i = 0;
+  while (i < array.length) {
+    var j = i + 1;
+    while (j < array.length) {
+      var product = array[i] * array[j];
+      if (product > largestProduct) {
+        largestProduct = product;
+      }
+      j++;
+    }
+    i++;
+  }
+  return largestProduct;
+}
+// console.log(findLargestProduct([5, -2, 1, -9, -7, 2, 6, 14]));
