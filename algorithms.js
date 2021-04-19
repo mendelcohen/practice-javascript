@@ -582,3 +582,69 @@ function findLargestProduct(array) {
   return largestProduct;
 }
 // console.log(findLargestProduct([5, -2, 1, -9, -7, 2, 6, 14]));
+
+
+
+// Given an array of numbers, return a new array containing just two numbers (from the original array) that add up to the number 10. If there are no two numbers that add up to 10, return false.
+
+// Specifically use nested loops to solve this exercise even though there are other approaches as well.
+
+// Input: [2, 5, 3, 1, 0, 7, 11]
+// Output: [3, 7]
+
+// Input: [1, 2, 3, 4, 5]
+// Output: false (While 1, 2, 3, and 4 altogether add up to 10, we're seeking just one pair of numbers.)
+
+function sumTen(array) {
+  var arraySum = [];
+  var index = 0;
+  while (index < array.length) {
+    var index2 = index + 1;
+    while (index2 < array.length) {
+      if (array[index] + array[index2] === 10) {
+        arraySum.push(array[index]);
+        arraySum.push(array[index2]);
+        return arraySum;
+      } else {
+        index2++;
+      }
+    }
+    index++;
+  }
+  return false;
+}
+// console.log(sumTen([2, 5, 3, 1, 0, 7, 11]));
+// console.log(sumTen([1, 5, 3, 4, 5]));
+// console.log(sumTen([2, 5, -1, 1, 0, 7, 11]));
+// console.log(sumTen([1, 2, 3, 4, 5]));
+
+
+
+// Given two sorted arrays, merge the second array into the first array while ensuring that the first array remains sorted. Do not use any built-in sort methods.
+
+// Input :
+// A : [1 5 8]
+// B : [6 9]
+
+// Modified A : [1 5 6 8 9]
+
+function mergeArrays(array1, array2) {
+  // var mergedArray = [];
+  var index = 0;
+  while (index < array2.length) {
+    var index1 = 0;
+    while (index1 < array1.length) {
+      if (array2[index] > array1[index1] && index1 === array1.length - 1) {
+        array1.push(array2[index]);
+      } else if (array2[index] > array1[index1] && array2[index] < array1[index1 + 1]) {
+        array1.splice(index1 + 1, 0, array2[index]);
+      } else {
+        index1++;
+      }
+    }
+    index++;
+  }
+  return array1;
+}
+console.log(mergeArrays([1, 5, 8], [6, 9]));
+console.log(mergeArrays([1, 5, 7, 8], [6, 9]));
