@@ -693,3 +693,48 @@ console.log(isHundredCoolioArray([1, 2, 3, 97, 98, 99]));
 console.log(isHundredCoolioArray([90, 20, 70, 100, 30, 80, 10]));
 console.log(isHundredCoolioArray([90, 20, 70, 100, 50, 30, 80, 10]));
 
+
+
+// Write a function to find the longest common prefix string amongst an array of strings.
+
+// If there is no common prefix, return an empty string "".
+
+// Example 1:
+
+// Input: ["flower","flow","flight"]
+// Output: "fl"
+// Example 2:
+
+// Input: ["dog","racecar","car"]
+// Output: ""
+// Explanation: There is no common prefix among the input strings.
+// Note:
+
+// All given inputs are in lowercase letters a-z.
+
+function commonPrefix(array) {
+  var prefix = "";
+  var i = 0;
+  var j = 0;
+  while (i < array[j].length) {
+    var letter = array[j][i];
+    while (j < array.length) {
+      if (array[j][i] === letter) {
+        j++;
+      } else {
+        break;
+      }
+      if (j === array.length - 1 && array[j][i] === letter) {
+        prefix += letter;
+      }
+    }
+    i++;
+    j = 0;
+  }
+  return prefix;
+}
+console.log(commonPrefix(["flower","flow","flight"]));
+console.log(commonPrefix(["dog","racecar","car"]));
+console.log(commonPrefix(["dag","dacecar","da"]));
+console.log(commonPrefix(["dag","dacecar","da", "dn", "dash", "dare"]));
+console.log(commonPrefix(["flower","flowers","flowery"]));
