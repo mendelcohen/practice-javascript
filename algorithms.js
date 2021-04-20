@@ -629,7 +629,6 @@ function sumTen(array) {
 // Modified A : [1 5 6 8 9]
 
 function mergeArrays(array1, array2) {
-  // var mergedArray = [];
   var index = 0;
   while (index < array2.length) {
     var index1 = 0;
@@ -646,5 +645,51 @@ function mergeArrays(array1, array2) {
   }
   return array1;
 }
-console.log(mergeArrays([1, 5, 8], [6, 9]));
-console.log(mergeArrays([1, 5, 7, 8], [6, 9]));
+// console.log(mergeArrays([1, 5, 6], [6, 9]));
+// console.log(mergeArrays([1, 5, 7, 8], [6, 9]));
+
+
+
+// Given an array of numbers, return true if the array is a "100 Coolio Array", or false if it is not.
+
+// A "100 Coolio Array" meets the following criteria:
+
+// Its first and last numbers add up to 100,
+// Its second and second-to-last numbers add up to 100,
+// Its third and third-to-last numbers add up to 100,
+// and so on and so forth.
+
+// Here are examples of 100 Coolio Arrays:
+
+// [1, 2, 3, 97, 98, 99]
+// [90, 20, 70, 100, 30, 80, 10]
+
+function isHundredCoolioArray(array) {
+  var index = 0;
+  var oppositeIndex = array.length - 1;
+  if (array.length % 2 === 0) {
+    while (index < array.length / 2) {
+      if (array[index] + array[oppositeIndex] === 100) {
+        index++;
+        oppositeIndex--;
+      } else {
+        return false;
+      }
+    }
+    return true;
+  } else {
+    while (index < (array.length - 1) / 2) {
+      if (array[(array.length - 1) / 2] === 100 && array[index] + array[oppositeIndex] === 100) {
+        index++;
+        oppositeIndex--;
+      } else {
+        return false;
+      }
+    }
+    return true;
+  }
+}
+console.log(isHundredCoolioArray([1, 2, 3, 97, 98, 99]));
+console.log(isHundredCoolioArray([90, 20, 70, 100, 30, 80, 10]));
+console.log(isHundredCoolioArray([90, 20, 70, 100, 50, 30, 80, 10]));
+
