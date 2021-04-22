@@ -1,5 +1,6 @@
 // Return the sum of all numbers in a given array.
 
+const { constant } = require("async");
 const { DH_CHECK_P_NOT_SAFE_PRIME } = require("constants");
 const { networkInterfaces } = require("os");
 
@@ -689,9 +690,9 @@ function isHundredCoolioArray(array) {
     return true;
   }
 }
-console.log(isHundredCoolioArray([1, 2, 3, 97, 98, 99]));
-console.log(isHundredCoolioArray([90, 20, 70, 100, 30, 80, 10]));
-console.log(isHundredCoolioArray([90, 20, 70, 100, 50, 30, 80, 10]));
+// console.log(isHundredCoolioArray([1, 2, 3, 97, 98, 99]));
+// console.log(isHundredCoolioArray([90, 20, 70, 100, 30, 80, 10]));
+// console.log(isHundredCoolioArray([90, 20, 70, 100, 50, 30, 80, 10]));
 
 
 
@@ -733,8 +734,38 @@ function commonPrefix(array) {
   }
   return prefix;
 }
-console.log(commonPrefix(["flower","flow","flight"]));
-console.log(commonPrefix(["dog","racecar","car"]));
-console.log(commonPrefix(["dag","dacecar","da"]));
-console.log(commonPrefix(["dag","dacecar","da", "dn", "dash", "dare"]));
-console.log(commonPrefix(["flower","flowers","flowery"]));
+// console.log(commonPrefix(["flower","flow","flight"]));
+// console.log(commonPrefix(["dog","racecar","car"]));
+// console.log(commonPrefix(["dag","dacecar","da"]));
+// console.log(commonPrefix(["dag","dacecar","da", "dn", "dash", "dare"]));
+// console.log(commonPrefix(["flower","flowers","flowery"]));
+
+
+
+// Given a string, find the most commonly occurring letter.
+
+// Input: “peter piper picked a peck of pickled peppers”
+// Output: “p”
+
+const commonLetter = string => {
+  let mostCommonLetter = "";
+  let letterCount = {};
+  [...string].forEach(letter => {
+    if (!letterCount[letter]) {
+      letterCount[letter] = 1;
+    } else {
+      letterCount[letter] += 1;
+    }
+  });
+  delete letterCount[" "];
+  let highestNumber = letterCount[string[0]];
+  Object.entries(letterCount).forEach(entry => {
+    const [key, value] = entry;
+    if (entry[1] >= highestNumber) {
+      highestNumber = entry[1];
+      mostCommonLetter = entry[0];
+    }
+  });
+  return mostCommonLetter;
+};
+console.log(commonLetter("peter piper picked a peck of pickled peppers"));
