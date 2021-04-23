@@ -769,3 +769,26 @@ const commonLetter = string => {
   return mostCommonLetter;
 };
 console.log(commonLetter("peter piper picked a peck of pickled peppers"));
+
+
+
+// Given an array of strings, return a hash that provides of a count of how many times each string occurs.
+
+// Input: ["Dewey", "Truman", "Dewey", "Dewey", "Truman", "Truman", "Dewey", "Truman", "Truman", "Dewey", "Dewey"]
+
+// Output: {"Dewey" => 6, "Truman" => 5}
+
+// Explanation: "Dewey" occurs 6 times in the array, while "Truman" occurs 5 times.
+
+function voteCount(array) {
+  var votes = {};
+  array.forEach(name => {
+    if (votes[name]) {
+      votes[name] += 1;
+    } else {
+      votes[name] = 1;
+    }
+  });
+  return votes;
+}
+console.log(voteCount(["Dewey", "Truman", "Dewey", "Dewey", "Truman", "Truman", "Dewey", "Truman", "Truman", "Dewey", "Dewey"]));
