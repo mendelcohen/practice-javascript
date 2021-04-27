@@ -811,4 +811,42 @@ const orderPrice = object => {
   });
   return totalPrice;
 };
-console.log(orderPrice({"hot dog": 2, "hamburger":3, "steak sandwich": 5, "fries": 1, "cole slaw": 1, "soda": 2, "grilled vegetables": 4}));
+// console.log(orderPrice({"hot dog": 2, "hamburger":3, "steak sandwich": 5, "fries": 1, "cole slaw": 1, "soda": 2, "grilled vegetables": 4}));
+
+
+
+// Given a DNA strand, return its RNA complement (per RNA transcription).
+
+// Both DNA and RNA strands are a sequence of nucleotides. Here we're representing the sequences with single-letter characters (e.g. a sample strand may look like: "AGCA".)
+
+// Given a string representing a DNA strand, provide its transcribed RNA strand, according to the following pattern:
+
+// G becomes C
+// C becomes G
+// T becomes A
+// A becomes U
+
+// So based on all this, here's a sample input/output:
+
+// Input: 'ACGTGGTCTTAA'
+// Output: 'UGCACCAGAAUU'
+
+const dnaToRna = string => {
+  let rna = "";
+  string.split("").forEach(letter => {
+    if (letter === "G") {
+      rna += "C";
+    } else if (letter === "C") {
+      rna += "G";
+    } else if (letter === "T") {
+      rna += "A";
+    } else if (letter === "A") {
+      rna += "U";
+    } else {
+      rna = "ERROR: LETTER " + letter + " FOUND IN DNA CODE";
+    }
+  });
+  return rna;
+};
+console.log(dnaToRna("ACGTGGTCTTAA"));
+console.log(dnaToRna("ACGTGGTCTTAAB"));
