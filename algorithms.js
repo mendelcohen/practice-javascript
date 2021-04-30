@@ -958,22 +958,26 @@ function idForName(array, object) {
 // Output: false
 
 const anagrams = (string1, string2) => {
-  let string3 = "";
-  let i = 0;
-  while (i < string1.length) {
-    let j = 0;
-    while (j < string2.length) {
-      if (string1[i] === string2[j]) {
-        string3 += string1[i];
+  if (string1.length === string2.length) {
+    let string3 = "";
+    let i = 0;
+    while (i < string1.length) {
+      let j = 0;
+      while (j < string2.length) {
+        if (string1[i] === string2[j]) {
+          string3 += string1[i];
+        }
+        j++;
       }
-      j++;
+      i++;
     }
-    i++;
+    return string1 === string3;
   }
-  return string1 === string3;
+  return false;
 };
 console.log(anagrams("silent", "listen"));
 console.log(anagrams("frog", "bear"));
+console.log(anagrams("frogs", "bear"));
 
 // var string1 = "strting";
 // console.log(string1.length);
