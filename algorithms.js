@@ -944,3 +944,39 @@ function idForName(array, object) {
 //   {title: 'best selfie evar!!!', submitted_by: 111, likes: 1092},
 //   {title: 'Mondays are the worst', submitted_by: 403, likes: 644}
 // ], {403: "Aunty Em", 231: "Joelle P.", 989: "Lyndon Johnson", 111: "Patti Q."}));
+
+
+
+// Given two strings, return true if they are anagrams of each other, and false if they are not. An anagram is a word, phrase, or name formed by rearranging the letters of another, such as cinema, formed from iceman.
+
+// Do not use any built-in sort methods.
+
+// Input: “silent”, “listen”
+// Output: true
+
+// Input: “frog”, “bear”
+// Output: false
+
+const anagrams = (string1, string2) => {
+  let string3 = "";
+  let i = 0;
+  while (i < string1.length) {
+    let j = 0;
+    while (j < string2.length) {
+      if (string1[i] === string2[j]) {
+        string3 += string1[i];
+      }
+      j++;
+    }
+    i++;
+  }
+  return string1 === string3;
+};
+console.log(anagrams("silent", "listen"));
+console.log(anagrams("frog", "bear"));
+
+// var string1 = "strting";
+// console.log(string1.length);
+// console.log(string1[0]);
+// string1.replace(string1[1], "");
+// console.log(string1.replace(string1[1], ""));
