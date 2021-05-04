@@ -975,12 +975,34 @@ const anagrams = (string1, string2) => {
   }
   return false;
 };
-console.log(anagrams("silent", "listen"));
-console.log(anagrams("frog", "bear"));
-console.log(anagrams("frogs", "bear"));
+// console.log(anagrams("silent", "listen"));
+// console.log(anagrams("frog", "bear"));
+// console.log(anagrams("frogs", "bear"));
 
-// var string1 = "strting";
-// console.log(string1.length);
-// console.log(string1[0]);
-// string1.replace(string1[1], "");
-// console.log(string1.replace(string1[1], ""));
+
+
+// You are given two parameters, an array and a number. Return a hash whose keys are each of the values from the array parameter, and whose values are the number parameter.
+
+// Input:
+
+// First argument: ["a", "e", "i", "o", "u"]
+// Second argument: 1
+
+// Output:
+
+// {
+// 'a' => 1,
+// 'e' => 1,
+// 'i' => 1,
+// 'o' => 1,
+// 'u' => 1
+// }
+
+const keyValue = (array, number) => {
+  let object = {};
+  for (let i = 0; i < array.length; i++) {
+    object[array[i]] = number;
+  }
+  return object;
+};
+// console.log(keyValue(["a", "e", "i", "o", "u"], 1));
