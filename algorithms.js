@@ -1022,4 +1022,21 @@ const convertObject = object => {
   });
   return array;
 };
-console.log(convertObject({a: 1, b: 2, c: 3, d: 4}));
+// console.log(convertObject({a: 1, b: 2, c: 3, d: 4}));
+
+
+
+// Given a hash, create a new hash that has the keys and values switched.
+
+// Input: {"a" => 1, "b" => 2, "c" => 3}
+// Output: {1 => "a", 2 => "b", 3 => "c"}
+
+const reverseObject = object => {
+  let reversedObject = {};
+  Object.entries(object).forEach(array => {
+    let [k, v] = array;
+    reversedObject[v] = k;
+  });
+  return reversedObject;
+};
+console.log(reverseObject({"a": 1, "b": 2, "c": 3}));
