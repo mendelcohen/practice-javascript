@@ -1006,3 +1006,20 @@ const keyValue = (array, number) => {
   return object;
 };
 // console.log(keyValue(["a", "e", "i", "o", "u"], 1));
+
+
+
+// Given a hash, return a flat array containing all the hash’s keys and values.
+
+// Input: {“a” => 1, “b” => 2, “c” => 3, “d” => 4}
+// Output: [“a”, 1, “b”, 2, “c”, 3, “d”, 4]
+
+const convertObject = object => {
+  let array = [];
+  Object.entries(object).forEach(entry => {
+    array.push(entry[0]);
+    array.push(entry[1]);
+  });
+  return array;
+};
+console.log(convertObject({a: 1, b: 2, c: 3, d: 4}));
