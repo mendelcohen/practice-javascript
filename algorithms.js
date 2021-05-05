@@ -1135,6 +1135,76 @@ function valuesToKeys(object) {
   );
   return newObject;
 }
-console.log(valuesToKeys({1: ["A", "E", "I", "O", "U"]}));
-console.log(valuesToKeys({1: ["A", "E"], 2: ["D", "G"]}));
-console.log(valuesToKeys({1: ["A", "E", "I", "O", "U", "L", "N", "R", "S", "T"], 2: ["D", "G"], 3: ["B", "C", "M", "P"], 4: ["F", "H", "V", "W", "Y"], 5: ["K"], 8: ["J", "X"], 10: ["Q", "Z"]}));
+// console.log(valuesToKeys({1: ["A", "E", "I", "O", "U"]}));
+// console.log(valuesToKeys({1: ["A", "E"], 2: ["D", "G"]}));
+// console.log(valuesToKeys({1: ["A", "E", "I", "O", "U", "L", "N", "R", "S", "T"], 2: ["D", "G"], 3: ["B", "C", "M", "P"], 4: ["F", "H", "V", "W", "Y"], 5: ["K"], 8: ["J", "X"], 10: ["Q", "Z"]}));
+
+var object = [{1: ["A", "E", "I", "O", "U"]}, {2: "T"}];
+var newObject = {};
+var news = Object.entries(object);
+// console.log(news);
+// .forEach(array => {
+//   var [k, v] = array;
+//   for (let i = 0; i < v.length; i++) {
+//     newObject[v[i]] = k;
+//   }
+// });
+// newObject = Object.keys(newObject).sort().reduce(
+//   (obj, key) => {
+//     obj[key] = newObject[key];
+//     return obj;
+//   },
+//   {}
+// );
+// console.log(newObject);
+
+
+
+// Given an array of social media posts and an array of users, return a list of posts (as an array of hashes) that replaces the submitted_by id number as the person's actual name.
+
+// For example, given this array of posts (note that the submitted_by is an id number):
+
+// [
+// {title: 'Me Eating Pizza', submitted_by: 231, likes: 1549},
+// {title: 'i never knew how cool i was until now', submitted_by: 989, likes: 3},
+// {title: 'best selfie evar!!!', submitted_by: 111, likes: 1092},
+// {title: 'Mondays are the worst', submitted_by: 403, likes: 644}
+// ]
+
+// And this array of users:
+
+// [
+// {user_id: 403, name: "Aunty Em"},
+// {user_id: 231, name: "Joelle P."},
+// {user_id: 989, name: "Lyndon Johnson"},
+// {user_id: 111, name: "Patti Q."},
+// ]
+
+// Return the array of posts as follows:
+
+// [
+// {title: 'Me Eating Pizza', submitted_by: "Joelle P.", likes: 1549},
+// {title: 'i never knew how cool i was until now', submitted_by: "Lyndon Johnson", likes: 3},
+// {title: 'best selfie evar!!!', submitted_by: "Patti Q.", likes: 1092},
+// {title: 'Mondays are the worst', submitted_by: "Aunty Em", likes: 644}
+// ]
+
+const idsForNames = (postArray, userArray) => {
+  postArray.forEach(post => {
+    userArray.forEach(user => {
+      user["user_id"] === post["submitted_by"] ? post["submitted_by"] = user["name"] : post["submitted_by"];
+    });
+  });
+  return postArray;
+};
+// console.log(idsForNames([
+//   {title: 'Me Eating Pizza', submitted_by: 231, likes: 1549},
+//   {title: 'i never knew how cool i was until now', submitted_by: 989, likes: 3},
+//   {title: 'best selfie evar!!!', submitted_by: 111, likes: 1092},
+//   {title: 'Mondays are the worst', submitted_by: 403, likes: 644}
+// ], [
+//   {user_id: 403, name: "Aunty Em"},
+//   {user_id: 231, name: "Joelle P."},
+//   {user_id: 989, name: "Lyndon Johnson"},
+//   {user_id: 111, name: "Patti Q."},
+// ]));
