@@ -1,6 +1,6 @@
 // Return the sum of all numbers in a given array.
 
-const { constant } = require("async");
+const { constant, forEachSeries } = require("async");
 const { DH_CHECK_P_NOT_SAFE_PRIME } = require("constants");
 const { networkInterfaces } = require("os");
 
@@ -1301,14 +1301,57 @@ const hundredViews = (array1, array2) => {
   }
   return newArray;
 };
-console.log(hundredViews([
-  {title: 'How to Make Wood', author_id: 4, views: 6},
-  {title: 'How to Seem Perfect', author_id: 4, views: 111},
-  {title: 'Review of the New "Unbreakable Mug"', author_id: 2, views: 202},
-  {title: 'Why Pigs Stink', author_id: 1, views: 12}
-], [
-  {id: 1, first_name: 'Jazz', last_name: 'Callahan'},
-  {id: 2, first_name: 'Ichabod', last_name: 'Loadbearer'},
-  {id: 3, first_name: 'Saron', last_name: 'Kim'},
-  {id: 4, first_name: 'Teena', last_name: 'Burgess'},
-]));
+// console.log(hundredViews([
+//   {title: 'How to Make Wood', author_id: 4, views: 6},
+//   {title: 'How to Seem Perfect', author_id: 4, views: 111},
+//   {title: 'Review of the New "Unbreakable Mug"', author_id: 2, views: 202},
+//   {title: 'Why Pigs Stink', author_id: 1, views: 12}
+// ], [
+//   {id: 1, first_name: 'Jazz', last_name: 'Callahan'},
+//   {id: 2, first_name: 'Ichabod', last_name: 'Loadbearer'},
+//   {id: 3, first_name: 'Saron', last_name: 'Kim'},
+//   {id: 4, first_name: 'Teena', last_name: 'Burgess'},
+// ]));
+
+
+
+// Given two arrays, return a new array that contains the intersection of the two arrays. The intersection means the values that are contained in both of the arrays. Do not use the "&", or any built-in intersection methods.
+
+// NOTE: You must accomplish this in O(n) time. This is also known as linear time.
+
+// Input: [1, 2, 3, 4, 5], [1, 3, 5, 7, 9]
+// Output: [1, 3, 5]
+
+function intersection(array1, array2) {
+  var newArray = [];
+  var object = {};
+  for (var i = 0; i < array1.length; i++) {
+    object[array1[i]] = 0;
+  }
+  console.log(object);
+  for (var j = 0; j < array2.length; j++) {
+    if (object.hasOwnProperty(array2[j])) {
+      newArray.push(array2[j]);
+    }
+  }
+  return newArray;
+}
+console.log(intersection([1, 2, 3, 4, 5], [1, 3, 5, 7, 9]));
+
+
+function intersection2(array1, array2) {
+  var newArray = [];
+  var object = {};
+  for (var i = 0; i < array1.length; i++) {
+    object[array1[i]] = 0;
+  }
+  console.log(object);
+  for (var j = 0; j < array2.length; j++) {
+    if (array2[j] in object) {
+      newArray.push(array2[j]);
+    }
+  }
+  return newArray;
+}
+console.log(intersection2([1, 2, 3, 4, 5], [1, 3, 5, 7, 9]));
+
