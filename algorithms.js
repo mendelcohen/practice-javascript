@@ -1336,7 +1336,7 @@ function intersection(array1, array2) {
   }
   return newArray;
 }
-console.log(intersection([1, 2, 3, 4, 5], [1, 3, 5, 7, 9]));
+// console.log(intersection([1, 2, 3, 4, 5], [1, 3, 5, 7, 9]));
 
 
 function intersection2(array1, array2) {
@@ -1353,5 +1353,31 @@ function intersection2(array1, array2) {
   }
   return newArray;
 }
-console.log(intersection2([1, 2, 3, 4, 5], [1, 3, 5, 7, 9]));
+// console.log(intersection2([1, 2, 3, 4, 5], [1, 3, 5, 7, 9]));
 
+
+
+// Given two arrays, determine whether one is a subset of the other. It is considered a subset if all the values in one array are contained within the other.
+
+// NOTE: You must accomplish this in O(n) time. This is also known as linear time.
+
+// Input: [1, 2, 3, 4, 5, 6], [6, 3, 2]
+// Output: true
+
+// Input: [1, 2, 3, 4, 5, 6], [6, 3, 7]
+// Output: false
+
+function subset(array1, array2) {
+  var object = {};
+  for (var i = 0; i < array1.length; i++) {
+    object[array1[i]] = 0;
+  }
+  for (var j = 0; j < array2.length; j++) {
+    if (!object.hasOwnProperty(array2[j])) {
+      return false;
+    } 
+  }
+  return true;
+}
+console.log(subset([1, 2, 3, 4, 5, 6], [6, 3, 2]));
+console.log(subset([1, 2, 3, 4, 5, 6], [6, 3, 7]));
