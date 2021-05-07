@@ -1244,19 +1244,71 @@ const idsForNames = (postArray, userArray) => {
 
 function newAuthorFormat(array) {
   var newFormat = {};
-  var index = 0;
-  while (index < array.length) {
+  for (var index = 0; index < array.length; index++) {
     newFormat[array[index]["author"]] ? newFormat[array[index]["author"]].push({title: array[index]["title"], year: array[index]["year"]}) : newFormat[array[index]["author"]] = [{title: array[index]["title"], year: array[index]["year"]}];
-    index++;
   }
   return newFormat;
 }
-console.log(newAuthorFormat([
-  {title: "The Lord of the Rings", author: "J. R. R. Tolkien", year: 1954 },
-  {title: "To Kill a Mockingbird", author: "Harper Lee", year: 1960 },
-  {title: "1984", author: "George Orwell", year: 1949 },
-  {title: "Go Set a Watchman", author: "Harper Lee", year: 2015 },
-  {title: "The Hobbit", author: "J. R. R. Tolkien", year: 1937 },
-  {title: "The Great Gatsby", author: "F. Scott Fitzgerald", year: 1925 },
-  {title: "The Two Towers", author: "J. R. R. Tolkien", year: 1954 }
+// console.log(newAuthorFormat([
+//   {title: "The Lord of the Rings", author: "J. R. R. Tolkien", year: 1954 },
+//   {title: "To Kill a Mockingbird", author: "Harper Lee", year: 1960 },
+//   {title: "1984", author: "George Orwell", year: 1949 },
+//   {title: "Go Set a Watchman", author: "Harper Lee", year: 2015 },
+//   {title: "The Hobbit", author: "J. R. R. Tolkien", year: 1937 },
+//   {title: "The Great Gatsby", author: "F. Scott Fitzgerald", year: 1925 },
+//   {title: "The Two Towers", author: "J. R. R. Tolkien", year: 1954 }
+// ]));
+
+
+
+// Given an array of Youtube videos, for example:
+
+// [
+// {title: 'How to Make Wood', author_id: 4, views: 6},
+// {title: 'How to Seem Perfect', author_id: 4, views: 111},
+// {title: 'Review of the New "Unbreakable Mug"', author_id: 2, views: 202},
+// {title: 'Why Pigs Stink', author_id: 1, views: 12}
+// ]
+
+// and an array of authors, for example:
+
+// [
+// {id: 1, first_name: 'Jazz', last_name: 'Callahan'},
+// {id: 2, first_name: 'Ichabod', last_name: 'Loadbearer'},
+// {id: 3, first_name: 'Saron', last_name: 'Kim'},
+// {id: 4, first_name: 'Teena', last_name: 'Burgess'},
+// ]
+
+// Return a new array of videos in the following format, and only include videos that have at least 100 views:
+
+// [
+// {title: 'How to Seem Perfect', views: 111, author_name: 'Teena Burgess' }
+// {title: 'Review of the New "Unbreakable Mug"', views: 202, author_name: 'Ichabod Loadbearer' },
+// ]
+
+const hundredViews = (array1, array2) => {
+  let newArray = [];
+  for (let i = 0; i < array1.length; i++) {
+    if (array1[i].views > 99) {
+      for (let j = 0; j < array2.length; j++) {
+        if (array1[i].author_id === array2[j].id) {
+          delete array1[i]["author_id"];
+          array1[i].author_name = `${array2[j].first_name} ${array2[j].last_name}`;
+          newArray.push(array1[i]);
+        }
+      }
+    }
+  }
+  return newArray;
+};
+console.log(hundredViews([
+  {title: 'How to Make Wood', author_id: 4, views: 6},
+  {title: 'How to Seem Perfect', author_id: 4, views: 111},
+  {title: 'Review of the New "Unbreakable Mug"', author_id: 2, views: 202},
+  {title: 'Why Pigs Stink', author_id: 1, views: 12}
+], [
+  {id: 1, first_name: 'Jazz', last_name: 'Callahan'},
+  {id: 2, first_name: 'Ichabod', last_name: 'Loadbearer'},
+  {id: 3, first_name: 'Saron', last_name: 'Kim'},
+  {id: 4, first_name: 'Teena', last_name: 'Burgess'},
 ]));
