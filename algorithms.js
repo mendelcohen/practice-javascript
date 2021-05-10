@@ -1381,3 +1381,24 @@ function subset(array1, array2) {
 }
 console.log(subset([1, 2, 3, 4, 5, 6], [6, 3, 2]));
 console.log(subset([1, 2, 3, 4, 5, 6], [6, 3, 7]));
+
+
+
+// A given array has one pair of duplicate values. Return the first duplicate value.
+
+// NOTE: You must accomplish this in O(n) time. This is also known as linear time.
+
+// Input: [5, 2, 9, 7, 2, 6]
+// Output: 2
+
+const duplicate = array => {
+  let object = {};
+  for (let i = 0; i < array.length; i++) {
+    if (object[array[i]] === 0) {
+      return array[i];
+    } else {
+      object[array[i]] = 0;
+    } 
+  }
+};
+console.log(duplicate([5, 2, 9, 7, 2, 6]));
