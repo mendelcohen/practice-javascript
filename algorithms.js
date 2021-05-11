@@ -1425,7 +1425,7 @@ const missingLetter = str => {
   letter = array[0];
   return letter;
 };
-console.log(missingLetter("The quick brown box jumps over a lazy dog"));
+// console.log(missingLetter("The quick brown box jumps over a lazy dog"));
 
 const missingLet = str => {
   let letter = "";
@@ -1441,7 +1441,7 @@ const missingLet = str => {
   }
   return letter;
 };
-console.log(missingLet("The quick brown box jumps over a lazy dog"));
+// console.log(missingLet("The quick brown box jumps over a lazy dog"));
 
 const missLetter = str => {
   let abc = {"a": 0, "b": 0, "c": 0, "d": 0, "e": 0, "f": 0, "g": 0, "h": 0, "i": 0, "j": 0, "k": 0, "l": 0, "m": 0, "n": 0, "o": 0, "p": 0, "q": 0, "r": 0, "s": 0, "t": 0, "u": 0, "v": 0, "w": 0, "x": 0, "y": 0, "z": 0};
@@ -1455,4 +1455,38 @@ const missLetter = str => {
     }
   }
 };
-console.log(missLetter("The quick brown box jumps over a lazy dog"));
+// console.log(missLetter("The quick brown box jumps over a lazy dog"));
+
+
+
+// Given a string, find the first non-repeating character in it and return its index. If it doesn't exist, return -1.
+
+// NOTE: You must accomplish this in O(n) time. This is also known as linear time.
+
+// Examples:
+
+// s = "leetcode"
+// return 0.
+// (The "l" is the first character that only appears once in the string, and appears at index 0.)
+
+// s = "loveleetcode",
+// return 2.
+// (The "l" and "o" are repeated, so the first non-repeating character is the "v", which is at index 2.)
+
+// Note: You may assume the string contain only lowercase letters.
+
+function nonRepeatLetter(str) {
+  var letters = {};
+  for (var i = 0; i < str.length; i++) {
+    letters[str[i]] ? letters[str[i]]++ : letters[str[i]] = 1;
+  }
+  for (var prop in letters) {
+    if (letters[prop] === 1) {
+      return str.indexOf(prop);
+    }
+  }
+  return "-1";
+}
+console.log(nonRepeatLetter("leetcode"));
+console.log(nonRepeatLetter("loveleetcode"));
+console.log(nonRepeatLetter("lololo"));
