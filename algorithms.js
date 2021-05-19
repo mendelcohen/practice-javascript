@@ -1487,6 +1487,37 @@ function nonRepeatLetter(str) {
   }
   return "-1";
 }
-console.log(nonRepeatLetter("leetcode"));
-console.log(nonRepeatLetter("loveleetcode"));
-console.log(nonRepeatLetter("lololo"));
+// console.log(nonRepeatLetter("leetcode"));
+// console.log(nonRepeatLetter("loveleetcode"));
+// console.log(nonRepeatLetter("lololo"));
+
+
+
+
+// This is the same exercise as Two Sum I, but you must now solve it in linear time.
+
+// Given an array of numbers, return a new array containing just two numbers (from the original array) that add up to the number 10. If there are no two numbers that add up to 10, return false.
+
+// Input: [2, 5, 3, 1, 0, 7, 11]
+// Output: [3, 7]
+
+// Input: [1, 2, 3, 4, 5]
+// Output: false (While 1, 2, 3, and 4 altogether add up to 10, we're seeking just one pair of numbers.)
+
+const twoTen = array => {
+  let newArray = [];
+  let numbers = {};
+  array.forEach(number => {
+    numbers[number] = "yeah";
+  });
+  array.forEach(number => {
+    delete numbers[number];
+    if (numbers.hasOwnProperty(10 - number)) {
+      newArray.push(number);
+      newArray.push(10 - number);
+    }
+  });
+  return newArray.length > 1 ? newArray : false;
+};
+console.log(twoTen([2, 5, 3, 1, 0, 7, 11]));
+console.log(twoTen([1, 2, 3, 4, 5]));
